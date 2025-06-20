@@ -1,11 +1,12 @@
 import './App.css'
+import AppSidebar from './components/AppSidebar'
 import Login from './screens/Login'
-import { BrowserRouter as Routes, Route, BrowserRouter } from 'react-router-dom'
 function App() {
 
   return (
     <>
-      <Login />
+      {/* <Login /> */}
+      <AppSidebar />
     </>
   )
 }
