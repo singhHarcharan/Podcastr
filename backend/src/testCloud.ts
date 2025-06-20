@@ -12,8 +12,8 @@ const s3Client = new S3Client({
     forcePathStyle: true
 });
 
-async function uploadAudio() {
-    const filePath = path.join(__dirname, "C:/armaan/OverDev/podcastr/Podcastr/backend/src/Assets/demoaudio1.mp3");
+export async function uploadAudio() {
+    const filePath = path.resolve(__dirname, "../src/Assets/demoaudio1.mp3");
 
     const uploadParams = {
         Bucket: "podcasts",
@@ -24,10 +24,10 @@ async function uploadAudio() {
 
     try {
         await s3Client.send(new PutObjectCommand(uploadParams));
-        console.log("✅ Audio uploaded successfully to MinIO");
+        console.log("Audio uploaded successfully to MinIO");
     } catch (err) {
-        console.error("❌ Upload failed:", err);
+        console.error("Upload failed:", err);
     }
 }
 
-uploadAudio();
+// uploadAudio();

@@ -12,7 +12,7 @@ const s3Client = new S3Client({
     forcePathStyle: true
 });
 async function uploadAudio() {
-    const filePath = path.join(__dirname, "./Assets/demoaudio1.mp3");
+    const filePath = path.resolve(__dirname, "../src/Assets/demoaudio1.mp3");
     const uploadParams = {
         Bucket: "podcasts",
         Key: "demoaudio1.mp3",
