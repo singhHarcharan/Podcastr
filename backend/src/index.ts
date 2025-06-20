@@ -1,34 +1,29 @@
-import express from 'express';
-import { json } from 'body-parser';
+import express, { Request, Response } from "express";
+import dotenv from "dotenv";
+import connectDB from "./db";
+import cors from "cors";
+import authRoutes from "./routes/auth";
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
+
+// Connect to MongoDB
+connectDB();
+
+// Enable CORS here — BEFORE routes and middlewares
+app.use(cors());
 
 // Middleware
-app.use(json());
+app.use(express.json());
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
-});
+// Routes
+app.use("/api", authRoutes);
 
-// Sample data endpoint
-app.get('/api/data', (req, res) => {
-  const data = {
-    message: 'Backend is working!',
-    timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || 'development'
-  };
-  res.json(data);
-});
+app.get("/", (_req, res) => res.send("API Running"));
 
-// Error handling middleware
-app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Something went wrong!' });
-});
-
-// Start the server
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
