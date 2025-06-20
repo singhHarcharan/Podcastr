@@ -158,7 +158,7 @@ const AppSidebar = () => {
                   display: 'flex',
                   alignItems: 'center',
                   cursor: 'pointer',
-                  padding: '8px 10px',
+                  padding: '10px 10px',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = '#2d2d2d';

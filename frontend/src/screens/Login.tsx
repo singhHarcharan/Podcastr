@@ -10,6 +10,7 @@ export default function Login() {
                 height: "100vh",
                 // backgroundColor: "#f5f5f5"
                 background: "url('https://c4.wallpaperflare.com/wallpaper/738/744/882/music-vinyl-simple-background-minimalism-wallpaper-preview.jpg')",
+                // background: "url('https://img.freepik.com/free-photo/abstract-digital-grid-black-background_53876-97647.jpg?ga=GA1.1.1983578984.1739202854&semt=ais_hybrid&w=740')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
