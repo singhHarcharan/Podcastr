@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.uploadAudio = uploadAudio;
 const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 const fs = require("fs");
 const path = require("path");
@@ -21,10 +23,10 @@ async function uploadAudio() {
     };
     try {
         await s3Client.send(new PutObjectCommand(uploadParams));
-        console.log("✅ Audio uploaded successfully to MinIO");
+        console.log("Audio uploaded successfully to MinIO");
     }
     catch (err) {
-        console.error("❌ Upload failed:", err);
+        console.error("Upload failed:", err);
     }
 }
-uploadAudio();
+// uploadAudio();
